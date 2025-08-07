@@ -1,7 +1,11 @@
 # 🛡️ SafeTown Insights
 
 **SafeTown Insights** is an interactive dashboard that compares crime data from police reports with demographic statistics from INSEE, focusing on the city of **Sarcelles (France)**.  
+
 It provides a clear, contextualized view of public safety metrics using open data.
+
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/Mohamed-elhediKraiem/safe-town-insights/main/dashboard/app.py)
+
 
 ---
 
@@ -23,3 +27,4 @@ safe-town-insights/
 │ └── app.py
 ├── requirements.txt # Python dependencies
 └── README.md # Project documentation
+
