@@ -1,10 +1,21 @@
 import pandas as pd
 import streamlit as st
 import pydeck as pdk
+import numpy as np
 
 df_crimes = pd.read_csv('../../data/dimension_crime.csv', sep=';')
-df_departements = pd.read_csv('../../data/dimension_departement_enrichi2.csv', sep=';')
+df_departements_without_central = pd.read_csv('../../data/dimension_departement_enrichi2.csv', sep=';')
+df_departements_central = pd.read_csv('../../data/points-extremes-des-departements-metropolitains-de-france.csv', sep=',')
 df_resultat = pd.read_csv('../data_cleaning/resultat.csv', sep=';')
+
+
+
+df_departements_central["Latitude_centrale"] = (df_departements_central["Latitude la plus au nord"] + df_departements_central["Latitude la plus au sud"]) /2 
+df_departements_central["Longitude_centrale"] = (df_departements_central["Longitude la plus à l’est"] + df_departements_central["Longitude la plus à l’ouest"]) /2 
+
+
+df_departements = pd.merge(df_departements_without_central, df_departements_central, on='Departement', how='left')
+print (df_departements)
 
 df_merge = pd.merge(df_resultat, df_departements, on='Departement', how='left')
 df_merge = pd.merge(df_merge, df_crimes, on='Code index', how='left')
@@ -25,6 +36,12 @@ optionCategorieCrime = st.sidebar.multiselect(
     sorted(df_merge['Categorie_Crime'].unique()),
     placeholder = 'Catégorie'
 )
+optionDelit = st.sidebar.multiselect(
+    "Choix du délit :",
+    sorted(df_merge['Libelle_Index'].unique()),
+    placeholder = 'Délit'
+)
+
 
 optionService = st.sidebar.multiselect(
     "Choix du service :",
@@ -49,6 +66,9 @@ df_filtered_no_year = df_merge.copy()
 
 if optionCategorieCrime:
     df_filtered_no_year = df_filtered_no_year[df_filtered_no_year['Categorie_Crime'].isin(optionCategorieCrime)]
+
+if optionDelit:
+    df_filtered_no_year = df_filtered_no_year[df_filtered_no_year['Libelle_Index'].isin(optionDelit)]
 
 if optionService:
     df_filtered_no_year = df_filtered_no_year[df_filtered_no_year['Service'].isin(optionService)]
@@ -103,25 +123,50 @@ col3.metric(
 
 # --- Agrégation par département ---
 df_map = df_filtered.groupby(
-    ['Libellé', 'latitude_departement', 'longitude_departement'], as_index=False
+    ['Libellé', 'Latitude_centrale', 'Longitude_centrale'], as_index=False
 )['Valeur'].sum()
 
 # --- Normalisation pour les couleurs ---
-# On mappe la valeur en un dégradé bleu -> rouge
-max_val = df_map['Valeur'].max()
-df_map['color_r'] = (df_map['Valeur'] / max_val * 255).astype(int)
-df_map['color_b'] = 255 - df_map['color_r']
+val_min, val_max = df_map['Valeur'].min(), df_map['Valeur'].max()
+val_range = val_max - val_min
+
+def get_color(value):
+    # Normaliser entre 0 et 1
+    x = (value - val_min) / val_range if val_range > 0 else 0.5
+
+    if x < 0.33:  # vert -> jaune
+        ratio = x / 0.33
+        r = int(0 + ratio * 255)
+        g = 255
+        b = 0
+    elif x < 0.66:  # jaune -> orange
+        ratio = (x - 0.33) / 0.33
+        r = 255
+        g = int(255 - ratio * (255 - 165))
+        b = 0
+    else:  # orange -> rouge
+        ratio = (x - 0.66) / 0.34
+        r = 255
+        g = int(165 - ratio * 165)
+        b = 0
+    return [r, g, b]
+
+df_map['color'] = df_map['Valeur'].apply(get_color)
+df_map['radius'] = 5 + (df_map['Valeur'] - val_min) / (val_max - val_min) * 45
+df_map['radius'] = np.log1p(df_map['Valeur']) 
+r_min, r_max = df_map['radius'].min(), df_map['radius'].max()
+df_map['radius'] = 5 + (df_map['radius'] - r_min) / (r_max - r_min) * 45
+
+print(df_map)
 
 # --- Création de la couche ---
 layer = pdk.Layer(
     "ScatterplotLayer",
     data=df_map,
-    get_position='[longitude_departement, latitude_departement]',
-    get_fill_color='[color_r, 0, color_b, 160]',
-    get_radius="Valeur",  # taille relative au nombre de crimes
-    radius_scale=50,    # ← ajuste ici (10 est trop petit si les valeurs sont grandes)
-    radius_min_pixels=3,
-    radius_max_pixels=50,
+    get_position='[Longitude_centrale, Latitude_centrale]',
+    get_fill_color='color',
+    get_radius="radius",
+    radius_units='pixels',
     pickable=True
 )
 
@@ -139,4 +184,5 @@ st.pydeck_chart(pdk.Deck(layers=[layer], initial_view_state=view_state,
 
 
 st.dataframe(df_filtered)
+
 
