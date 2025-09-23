@@ -3,31 +3,10 @@ import streamlit as st
 import pydeck as pdk
 import numpy as np
 
-import os
-
-# base path = dossier courant du script
-BASE_DIR = os.path.dirname(__file__)
-
-# Chargement des fichiers avec chemins relatifs robustes
-df_crimes = pd.read_csv(
-    os.path.join(BASE_DIR, '..', 'data', 'dimension_crime.csv'),
-    sep=';', encoding='latin1'
-)
-
-df_departements_without_central = pd.read_csv(
-    os.path.join(BASE_DIR, '..', 'data', 'dimension_departement_enrichi2.csv'),
-    sep=';', encoding='latin1'
-)
-
-df_departements_central = pd.read_csv(
-    os.path.join(BASE_DIR, '..', 'data', 'points-extremes-des-departements-metropolitains-de-france.csv'),
-    sep=',', encoding='latin1'
-)
-
-df_resultat = pd.read_csv(
-    os.path.join(BASE_DIR, '..', 'data_cleaning', 'resultat.csv'),
-    sep=';', encoding='latin1'
-)
+df_crimes = pd.read_csv('../../data/dimension_crime.csv', sep=';')
+df_departements_without_central = pd.read_csv('../../data/dimension_departement_enrichi2.csv', sep=';')
+df_departements_central = pd.read_csv('../../data/points-extremes-des-departements-metropolitains-de-france.csv', sep=',')
+df_resultat = pd.read_csv('../data_cleaning/resultat.csv', sep=';')
 
 
 
