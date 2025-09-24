@@ -1,6 +1,6 @@
 # Safe Town Insights  
 
-[![Python](https://img.shields.io/badge/Python-3.9%2B-blue?logo=python&logoColor=white)](https://www.python.org/)  [![Streamlit](https://img.shields.io/badge/Streamlit-1.0%2B-FF4B4B?logo=streamlit&logoColor=white)](https://streamlit.io/)  [![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-150458?logo=pandas)](https://pandas.pydata.org/)  [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)  [![Live Demo](https://img.shields.io/badge/Demo-Streamlit%20App-FF4B4B?logo=streamlit)](https://safe-town-insights-gp7fgkquuznlfemnuwh9pm.streamlit.app/)  [![GitHub repo](https://img.shields.io/badge/GitHub-Repository-181717?logo=github)](https://github.com/Mohamed-elhediKraiem/safe-town-insights)  
+[![Python](https://img.shields.io/badge/Python-3.9%2B-blue?logo=python&logoColor=white)](https://www.python.org/)  [![Streamlit](https://img.shields.io/badge/Streamlit-1.0%2B-FF4B4B?logo=streamlit&logoColor=white)](https://streamlit.io/)  [![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-150458?logo=pandas)](https://pandas.pydata.org/) [![Live Demo](https://img.shields.io/badge/Demo-Streamlit%20App-FF4B4B?logo=streamlit)](https://safe-town-insights-gp7fgkquuznlfemnuwh9pm.streamlit.app/)  [![GitHub repo](https://img.shields.io/badge/GitHub-Repository-181717?logo=github)](https://github.com/Mohamed-elhediKraiem/safe-town-insights)  
 
 ---
 
