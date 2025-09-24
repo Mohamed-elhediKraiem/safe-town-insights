@@ -1,0 +1,108 @@
+﻿Code index;Libelle_Index;Categorie_Crime
+1;Règlements de compte entre malfaiteurs;Atteintes volontaires à la vie
+2;Homicides pour voler et à l'occasion de vols;Atteintes volontaires à la vie
+3;Homicides pour d'autres motifs;Atteintes volontaires à la vie
+4;Tentatives d'homicides pour voler et à l'occasion de vols;Atteintes volontaires à la vie
+5;Tentatives homicides pour d'autres motifs;Atteintes volontaires à la vie
+6;Coups et blessures volontaires suivis de mort;Atteintes volontaires à la vie
+7;Autres coups et blessures volontaires criminels ou correctionnels;Violences et atteintes aux personnes
+8;Prises d'otages à l'occasion de vols;Violences et atteintes aux personnes
+9;Prises d'otages dans un autre but;Violences et atteintes aux personnes
+10;Sequestrations;Violences et atteintes aux personnes
+11;Menaces ou chantages pour extorsion de fonds;Violences et atteintes aux personnes
+12;Menaces ou chantages dans un autre but;Violences et atteintes aux personnes
+13;Atteintes à la dignité et à la  personnalité;Violences et atteintes aux personnes
+14;Violations de domicile;Violences et atteintes aux personnes
+15;Vols à main armée contre des établissements financiers;Vols et cambriolages
+16;Vols à main armée contre des éts industriels ou commerciaux;Vols et cambriolages
+17;Vols à main armée contre des entreprises de transports de fonds;Vols et cambriolages
+18;Vols à main armée contre des particuliers à leur domicile;Vols et cambriolages
+19;Autres vols à main armée;Vols et cambriolages
+20;Vols avec armes blanches contre des établissements financiers,commerciaux ou industriels;Vols et cambriolages
+21;Vols avec armes blanches contre des particuliers à leur domicile;Vols et cambriolages
+22;Autres vols avec armes blanches;Vols et cambriolages
+23;Vols violents sans arme contre des établissements financiers,commerciaux ou industriels;Vols et cambriolages
+24;Vols violents sans arme contre des particuliers à leur domicile;Vols et cambriolages
+25;Vols violents sans arme contre des femmes sur voie publique ou autre lieu public;Vols et cambriolages
+26;Vols violents sans arme contre d'autres victimes;Vols et cambriolages
+27;Cambriolages de locaux d'habitations principales;Vols et cambriolages
+28;Cambriolages de résidences secondaires;Vols et cambriolages
+29;Camb.de  locaux industriels, commerciaux ou financiers;Vols et cambriolages
+30;Cambriolages d'autres lieux;Vols et cambriolages
+31;Vols avec entrée par ruse en tous lieux;Vols et cambriolages
+32;Vols à la tire;Vols et cambriolages
+33;Vols à l'étalage;Vols et cambriolages
+34;Vols de véhicules de transport avec frêt;Vols et cambriolages
+35;Vols d'automobiles;Vols et cambriolages
+36;Vols de véhicules motorisés à 2 roues;Vols et cambriolages
+37;Vols à la roulotte;Vols et cambriolages
+38;Vols d''accessoires sur véhicules à moteur immatriculés;Vols et cambriolages
+39;Vols simples sur chantier;Vols et cambriolages
+40;Vols simples sur exploitations agricoles;Vols et cambriolages
+41;Autres vols simples contre des établissements publics ou privés;Vols et cambriolages
+42;Autres vols simples contre des particuliers dans  deslocaux privés;Vols et cambriolages
+43;Autres vols simples contre des particuliers dans des locaux ou lieux publics;Vols et cambriolages
+44;Recels;Vols et cambriolages
+45;Proxénétisme;Autres délits
+46;Viols sur des majeur(e)s;Violences et atteintes aux personnes
+47;Viols sur des mineur(e)s;Violences et atteintes aux personnes
+48;Harcèlements sexuels et autres agressions sexuelles contre des majeur(e)s;Violences et atteintes aux personnes
+49;Harcèlements sexuels et autres agressions sexuelles contre des mineur(e)s;Violences et atteintes aux personnes
+50;Atteintes sexuelles;Violences et atteintes aux personnes
+51;Homicides commis contre enfants de moins de 15 ans;Atteintes volontaires à la vie
+52;Violences, mauvais traitements et abandons d'enfants.;Violences et atteintes aux personnes
+53;Délits au sujet de la garde des mineurs;Violences et atteintes aux personnes
+54;Non versement de pension alimentaire;Autres délits
+55;Trafic et revente sans usage de stupéfiants;Stupéfiants et infractions liées
+56;Usage-revente de stupéfiants;Stupéfiants et infractions liées
+57;Usage de stupéfiants;Stupéfiants et infractions liées
+58;Autres infractions à la législation sur les stupéfiants;Stupéfiants et infractions liées
+59;Délits de débits de boissons et infraction à la règlementation sur l'alcool  et le tabac;Atteintes aux biens et à l’ordre public
+60;Fraudes alimentaires et infractions à l'hygiène;Atteintes aux biens et à l’ordre public
+61;Autres délits contre santé publique et la réglementation des professions médicales;Atteintes aux biens et à l’ordre public
+62;Incendies volontaires de biens publics;Atteintes aux biens et à l’ordre public
+63;Incendies volontaires de biens privés;Atteintes aux biens et à l’ordre public
+64;Attentats à l'explosif contre des biens publics;Atteintes aux biens et à l’ordre public
+65;Attentats à l'explosif contre des biens privés;Atteintes aux biens et à l’ordre public
+66;Autres destructions er dégradations de biens publics;Atteintes aux biens et à l’ordre public
+67;Autres destructions er dégradations de biens privés;Atteintes aux biens et à l’ordre public
+68;Destructions et dégradations de véhicules privés;Atteintes aux biens et à l’ordre public
+69;Infractions aux conditions générales d'entrée et de séjour des étrangers;Autres délits
+70;Aide à l'entrée, à la circulation et au séjour des étrangers;Autres délits
+71;Autres infractions à la police des étrangers;Autres délits
+72;Outrages à dépositaires autorité;Violences et atteintes aux personnes
+73;Violences à dépositaires autorité;Violences et atteintes aux personnes
+74;Port ou détention armes prohibées;Atteintes aux biens et à l’ordre public
+75;Atteintes aux intérêts fondamentaux de la Nation;Atteintes à la sûreté de l’État
+76;Délits des courses et des jeux;Atteintes à la sûreté de l’État
+77;Délits interdiction de séjour et de paraître;Atteintes à la sûreté de l’État
+78;Destructions, cruautés et autres délits envers les animaux;Atteintes aux biens et à l’ordre public
+79;Atteintes à l'environnement;Atteintes aux biens et à l’ordre public
+80;Chasse et pêche;Atteintes aux biens et à l’ordre public
+81;Faux documents d'identité;Infractions économiques et financières
+82;Faux documents concernant la circulation des véhicules;Infractions économiques et financières
+83;Autres faux documents administratifs;Infractions économiques et financières
+84;Faux en écriture publique et authentique;Infractions économiques et financières
+85;Autres faux en écriture;Infractions économiques et financières
+86;Fausse monnaie;Infractions économiques et financières
+87;Contrefaçons et fraudes industrielles et commerciales;Infractions économiques et financières
+88;Contrefaçons littéraires et artistique;Infractions économiques et financières
+89;Falsification et usages de chèques volés;Infractions économiques et financières
+90;Falsification et usages de cartes de crédit;Infractions économiques et financières
+91;Escroqueries et abus de confiance;Infractions économiques et financières
+92;Infractions à la législation sur les chèques;Infractions économiques et financières
+93;Travail clandestin;Infractions économiques et financières
+94;Emploi d'étranger sans titre de travail;Infractions économiques et financières
+95;Marchandage - prêt de main d'oeuvre;Infractions économiques et financières
+96;Index non utilisé;Non utilisé / N/A
+97;Index non utilisé;Non utilisé / N/A
+98;Banqueroutes, abus de biens sociaux et autres délits de société;Infractions économiques et financières
+99;Index non utilisé;Non utilisé / N/A
+100;Index non utilisé;Non utilisé / N/A
+101;Prix illicittes, publicité fausse et infractions aux règles de la concurrence;Infractions économiques et financières
+102;Achats et ventes sans factures;Infractions économiques et financières
+103;Infractions à l'exercice d'une profession règlementée;Infractions économiques et financières
+104;Infractions au droit de l'urbanisme et de la construction;Infractions économiques et financières
+105;Fraudes fiscales;Infractions économiques et financières
+106;Autres délits économiques et financiers;Infractions économiques et financières
+107;Autres délits;Autres délits

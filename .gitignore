@@ -1,4 +1,4 @@
 __pycache__/
 *.pyc
 .env
-*.csv
+data_not_to_push/
