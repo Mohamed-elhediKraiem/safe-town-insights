@@ -20,7 +20,9 @@ Le projet utilise des données ouvertes issues de [data.gouv.fr](https://www.dat
 
 - **Filtres interactifs** : année, catégorie de crime, délit, service, région, département.  
 - **KPIs dynamiques** : nombre total de crimes, comparaison année N / N-1, évolution en %.  
-- **Carte interactive** : représentation géographique des crimes par département, avec code couleur et taille de point proportionnelle.  
+- **Carte interactive** : deux modes disponibles :  
+  - **Bulles (Bubble mode)** : taille des points proportionnelle et **normalisée** (max 30px, min 4px) → permet une meilleure lisibilité même au dézoom.  
+  - **Heatmap** : carte mettant en évidence les zones à forte densité de crimes.   
 - **Classement Top 3** : départements avec le plus grand nombre de crimes (selon filtres).  
 - **Tableau filtré** : affichage direct des données filtrées.  
 
@@ -43,8 +45,13 @@ Le projet utilise des données ouvertes issues de [data.gouv.fr](https://www.dat
 ## 📊 Aperçu  
 
 ### Carte interactive des crimes en France  
-- Couleur : du **vert (faible)** au **rouge (fort)** en fonction du volume de crimes.  
-- Taille des cercles : proportionnelle au nombre d’infractions.  
+- **Mode Bulles** :  
+  - Couleur : du **vert (faible)** au **rouge (fort)** en fonction du volume de crimes.  
+  - Taille : proportionnelle au nombre d’infractions, **normalisée avec un max de 30px**.  
+
+- **Mode Heatmap** :  
+  - Affiche la densité des crimes sous forme de carte thermique.  
+  - Idéal pour une vue d’ensemble à l’échelle nationale. 
 
 ### KPIs dynamiques  
 - Crimes totaux (2018–2021)  
@@ -57,7 +64,7 @@ Le projet utilise des données ouvertes issues de [data.gouv.fr](https://www.dat
 
 - Analyse temporelle plus fine (séries chronologiques).  
 - Comparaisons entre régions et départements.  
-- Ajout de nouvelles visualisations (barplots, heatmaps, tendances).  
+- Ajout de nouvelles visualisations (barplots, tendances).  
 - Optimisation du chargement et de la gestion des données.  
 
 ---

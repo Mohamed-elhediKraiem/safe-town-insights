@@ -158,20 +158,59 @@ def get_color(value):
         r, g, b = 255, int(165 - ratio * 165), 0
     return [r, g, b]
 
-df_map['color'] = df_map['Valeur'].apply(get_color)
-df_map['radius'] = np.log1p(df_map['Valeur']) * 3  # rayon en mètres
-
-# --- Création de la couche ---
-layer = pdk.Layer(
-    "ScatterplotLayer",
-    data=df_map,
-    get_position='[Longitude_centrale, Latitude_centrale]',
-    get_fill_color='color',
-    get_radius="radius",
-    radius_units='meters',
-    pickable=True
+# --- Choix du mode d’affichage ---
+st.sidebar.markdown("### Affichage de la carte")
+mode_carte = st.sidebar.radio(
+    "Mode d’affichage :",
+    ["Bubble", "Heatmap"],
+    index=0
 )
+layers = []
 
+# --- Calcul des couleurs et tailles des bulles ---
+df_map['color'] = df_map['Valeur'].apply(get_color)
+
+if mode_carte == "Bubble":
+    
+    #df_map['radius'] = np.log1p(df_map['Valeur']) * 3  # rayon en mètres
+
+    # Normalisation de la taille des bulles sur le MAX du périmètre filtré
+    # rayon max fixé à 30 px
+    # rayon min borné à 4 px pour garder la cliquabilité
+    if val_max <= 0:
+        df_map['radius_px'] = 4  # cas bord : toutes les valeurs nulles ou négatives
+    else:
+        df_map['radius_px'] = np.maximum(4, 30 * (df_map['Valeur'] / val_max))
+
+    # --- Création de la couche ---
+    layer = pdk.Layer(
+            "ScatterplotLayer",
+            data=df_map,
+            get_position='[Longitude_centrale, Latitude_centrale]',
+            get_fill_color='color',
+            get_radius='radius_px',
+            radius_units='pixels',        # <<< clé : en pixels !
+            radius_min_pixels=2,
+            radius_max_pixels=30,         # borne supérieure stricte = 30 px
+            stroked=True,                 # lisibilité
+            get_line_color=[30, 30, 30],
+            line_width_min_pixels=1,
+            pickable=True,
+            opacity=0.6,
+            auto_highlight=True
+        )
+    layers.append(layer)
+    
+elif mode_carte == "Heatmap":
+    layers.append(pdk.Layer(
+        "HeatmapLayer",
+        data=df_map,
+        get_position='[Longitude_centrale, Latitude_centrale]',
+        get_weight="Valeur",
+        radiusPixels=40,        
+        intensity=1.0,
+        threshold=0.2
+    ))
 # --- Vue centrée sur la France ---
 view_state = pdk.ViewState(
     latitude=46.6, longitude=2.5, zoom=5, pitch=0
@@ -184,7 +223,7 @@ with col_left:
     )
     st.pydeck_chart(
         pdk.Deck(
-            layers=[layer],
+            layers=layers,
             initial_view_state=view_state,
             tooltip={"text": "{Libellé}\nCrimes: {Valeur}"}
         ),
